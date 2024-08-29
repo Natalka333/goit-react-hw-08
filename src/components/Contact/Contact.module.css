@@ -1,0 +1,44 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.cardName {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cardNumber {
+    font-size: 14px;
+    color: #555;
+}
+
+.button {
+    align-self: flex-end;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ff3333;
+}
