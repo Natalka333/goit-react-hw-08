@@ -1,9 +1,9 @@
-
+import Title from '../components/Title/Title'
 
 const HomePage = () => {
     return (
         <div>
-            <h2>Welcome to the contact book</h2>
+            <Title>Welcome to the contact book</Title>
         </div>
     )
 }

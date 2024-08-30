@@ -15,7 +15,7 @@ import HomePage from './pages/HomePage';
 import RegistrationPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 import ContactsPage from './pages/ContactsPage';
-
+import Navigation from './components/Navigation/Navigation';
 
 
 const App = () => {
@@ -30,12 +30,16 @@ const App = () => {
 
 
   return (
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/register' element={<RegistrationPage />} />
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/contacts' element={<ContactsPage />} />
-    </Routes>
+    <>
+      <Navigation />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/register' element={<RegistrationPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/contacts' element={<ContactsPage />} />
+      </Routes>
+    </>
+
     // <div>
     //   <Title />
     //   <ContactForm />
