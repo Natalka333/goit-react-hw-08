@@ -3,8 +3,8 @@ import Title from "../components/Title/Title"
 import { selectIsLoading } from "../redux/contacts/selectors";
 import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
-import { ContactForm } from "../components/ContactForm/ContactForm";
-import { ContactList } from "../components/ContactList/ContactList";
+import ContactForm from '/src/components/ContactForm/ContactForm.jsx';
+import ContactList from "/src/components/ContactList/ContactList";
 
 
 const ContactsPage = () => {

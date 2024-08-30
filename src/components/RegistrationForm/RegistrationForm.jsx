@@ -32,7 +32,7 @@ const RegisterSchema = Yup.object().shape({
 
 
 const initialValues = {
-    name: "",
+    username: "",
     email: "",
     password: "",
 
@@ -41,7 +41,10 @@ const initialValues = {
 
 
 const RegistrationForm = () => {
+    console.log("registrationForm rendered")
+
     const dispatch = useDispatch();
+
 
 
     const handleSubmit = (values, actions) => {

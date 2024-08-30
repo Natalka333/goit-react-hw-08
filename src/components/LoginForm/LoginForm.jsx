@@ -42,8 +42,8 @@ const LoginForm = () => {
 
 
     const handleSubmit = (values, actions) => {
+        console.log("Form submitted", values);
         dispatch(login({
-
             email: values.email,
             password: values.password,
         }));
