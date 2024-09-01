@@ -11,22 +11,20 @@ import { useDispatch } from "react-redux";
 
 
 const RegisterSchema = Yup.object().shape({
-    username: Yup.string()
-        .min(3, "Слишком короткое имя!")
-        .max(50, "Слишком длинное имя!")
-        .required("Обязательно"),
+    username: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
 
     email: Yup.string()
-        .email("Неверный формат email!")
-        .required("Обязательно"),
+        .email("Invalid format email!")
+        .required("Required"),
 
     password: Yup.string()
-        .min(8, "Пароль должен быть не менее 8 символов!")
-        .matches(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву!")
-        .matches(/[a-z]/, "Пароль должен содержать хотя бы одну строчную букву!")
-        .matches(/[0-9]/, "Пароль должен содержать хотя бы одну цифру!")
-        .matches(/[@$!%*?&#]/, "Пароль должен содержать хотя бы один специальный символ!")
-        .required("Обязательно"),
+
+        .min(8, "Too Short!")
+
+        .matches(/[a-z]/, "Must be a lowercase letter! ")
+        .matches(/[0-9]/, "Must be a number! ")
+
+        .required("Required"),
 });
 
 
@@ -48,6 +46,8 @@ const RegistrationForm = () => {
 
 
     const handleSubmit = (values, actions) => {
+        console.log("Registration values:", values);
+
         dispatch(register({
             name: values.username,
             email: values.email,

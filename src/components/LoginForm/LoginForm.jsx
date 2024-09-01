@@ -10,20 +10,20 @@ import { useDispatch } from "react-redux";
 import css from './LoginForm.module.css'
 
 
-const RegisterSchema = Yup.object().shape({
+const LoginSchema = Yup.object().shape({
 
 
     email: Yup.string()
-        .email("Неверный формат email!")
-        .required("Обязательно"),
+        .email("Invalid format email!")
+        .required("Required"),
 
     password: Yup.string()
-        .min(8, "Пароль должен быть не менее 8 символов!")
-        .matches(/[A-Z]/, "Пароль должен содержать хотя бы одну заглавную букву!")
-        .matches(/[a-z]/, "Пароль должен содержать хотя бы одну строчную букву!")
-        .matches(/[0-9]/, "Пароль должен содержать хотя бы одну цифру!")
-        .matches(/[@$!%*?&#]/, "Пароль должен содержать хотя бы один специальный символ!")
-        .required("Обязательно"),
+        .min(8, "Too Short!")
+
+        .matches(/[a-z]/, "Must be a lowercase letter! ")
+        .matches(/[0-9]/, "Must be a number! ")
+
+        .required("Required"),
 });
 
 
@@ -38,11 +38,13 @@ const initialValues = {
 
 
 const LoginForm = () => {
+
     const dispatch = useDispatch();
 
 
     const handleSubmit = (values, actions) => {
-        console.log("Form submitted", values);
+        console.log("Login values:", values);
+
         dispatch(login({
             email: values.email,
             password: values.password,
@@ -55,7 +57,7 @@ const LoginForm = () => {
         <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
-            validationSchema={RegisterSchema}
+            validationSchema={LoginSchema}
         >
             <Form>
 
