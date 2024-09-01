@@ -1,7 +1,5 @@
-
 import { Formik, Form, ErrorMessage, Field } from "formik"
 import * as Yup from "yup";
-
 
 import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
@@ -11,36 +9,27 @@ import css from './LoginForm.module.css'
 
 
 const LoginSchema = Yup.object().shape({
-
-
     email: Yup.string()
         .email("Invalid format email!")
         .required("Required"),
 
     password: Yup.string()
         .min(8, "Too Short!")
-
         .matches(/[a-z]/, "Must be a lowercase letter! ")
         .matches(/[0-9]/, "Must be a number! ")
-
         .required("Required"),
 });
 
 
 
 const initialValues = {
-
     email: "",
     password: "",
-
-
 };
 
 
 const LoginForm = () => {
-
     const dispatch = useDispatch();
-
 
     const handleSubmit = (values, actions) => {
         console.log("Login values:", values);
@@ -51,7 +40,6 @@ const LoginForm = () => {
         }));
         actions.resetForm();
     }
-
 
     return (
         <Formik

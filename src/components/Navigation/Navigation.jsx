@@ -8,7 +8,6 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 const Navigation = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
-
     const buildLinkClass = ({ isActive }) => {
         return isActive ? `${css.navLink} ${css.navLinkActive}` : css.navLink;
     };
