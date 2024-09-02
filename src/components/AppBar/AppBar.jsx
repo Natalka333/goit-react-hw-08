@@ -8,6 +8,8 @@ import UserMenu from "../UserMenu/UserMenu"
 
 import css from "./AppBar.module.css";
 
+
+// Компонент AppBar отображает навигацию и меню пользователя или ссылки на регистрацию
 const AppBar = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
