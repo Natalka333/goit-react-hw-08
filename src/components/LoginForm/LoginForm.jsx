@@ -47,7 +47,7 @@ const LoginForm = () => {
             onSubmit={handleSubmit}
             validationSchema={LoginSchema}
         >
-            <Form>
+            <Form className={css.form}>
 
                 <label className={css.label} >Email</label>
                 <Field className={css.field} type="email" name="email" />
@@ -58,7 +58,7 @@ const LoginForm = () => {
                 <ErrorMessage className={css.error} name="password" component="div" />
 
 
-                <button type="submit">Log In</button>
+                <button type="submit" className={css.button}>Log In</button>
             </Form>
         </Formik>
     )
