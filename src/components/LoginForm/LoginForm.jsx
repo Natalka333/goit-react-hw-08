@@ -1,5 +1,6 @@
 import { Formik, Form, ErrorMessage, Field } from "formik"
 import * as Yup from "yup";
+import { motion } from 'framer-motion';
 
 import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
@@ -47,19 +48,25 @@ const LoginForm = () => {
             onSubmit={handleSubmit}
             validationSchema={LoginSchema}
         >
-            <Form className={css.form}>
+            <motion.div
+                initial={{ x: '-100vw' }}
+                animate={{ x: 0 }}
+                transition={{ type: 'spring', stiffness: 50 }}
+            >
+                <Form className={css.form}>
 
-                <label className={css.label} >Email</label>
-                <Field className={css.field} type="email" name="email" />
-                <ErrorMessage className={css.error} name="email" component="div" />
+                    <label className={css.label} >Email</label>
+                    <Field className={css.field} type="email" name="email" />
+                    <ErrorMessage className={css.error} name="email" component="div" />
 
-                <label className={css.label} >Password</label>
-                <Field className={css.field} type="password" name="password" />
-                <ErrorMessage className={css.error} name="password" component="div" />
+                    <label className={css.label} >Password</label>
+                    <Field className={css.field} type="password" name="password" />
+                    <ErrorMessage className={css.error} name="password" component="div" />
 
 
-                <button type="submit" className={css.button}>Log In</button>
-            </Form>
+                    <button type="submit" className={css.button}>Log In</button>
+                </Form>
+            </motion.div>
         </Formik>
     )
 }

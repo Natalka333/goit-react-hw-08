@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-
+import { motion } from 'framer-motion';
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -41,17 +41,23 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
             validationSchema={FeedbackSchema}
         >
-            <Form className={css.form}>
-                <label className={css.label} >Name</label>
-                <Field className={css.field} type="text" name="username" />
-                <ErrorMessage className={css.error} name="username" component="div" />
+            <motion.div
+                initial={{ x: '-100vw' }}
+                animate={{ x: 0 }}
+                transition={{ type: 'spring', stiffness: 50 }}
+            >
+                <Form className={css.form}>
+                    <label className={css.label} >Name</label>
+                    <Field className={css.field} type="text" name="username" />
+                    <ErrorMessage className={css.error} name="username" component="div" />
 
-                <label className={css.label} >Number</label>
-                <Field className={css.field} type="tel" name="number" />
-                <ErrorMessage className={css.error} name="number" component="div" />
+                    <label className={css.label} >Number</label>
+                    <Field className={css.field} type="tel" name="number" />
+                    <ErrorMessage className={css.error} name="number" component="div" />
 
-                <button className={css.button} type="submit">Add contact</button>
-            </Form>
+                    <button className={css.button} type="submit">Add contact</button>
+                </Form>
+            </motion.div>
         </Formik>
     );
 };
