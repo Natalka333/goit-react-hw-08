@@ -33,7 +33,7 @@ const RegistrationForm = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, actions) => {
-        console.log("Registration values:", values);
+        // console.log("Registration values:", values);
 
         dispatch(register({
             name: values.username,
