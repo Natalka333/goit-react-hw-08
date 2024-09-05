@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage'))
@@ -32,6 +33,7 @@ const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>) : (
     <Layout>
+      <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
